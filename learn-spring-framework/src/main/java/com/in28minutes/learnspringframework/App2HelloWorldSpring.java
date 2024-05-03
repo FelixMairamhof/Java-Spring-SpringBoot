@@ -28,14 +28,19 @@ public class App2HelloWorldSpring {
         var address = context.getBean("address2");
         System.out.println(address);
 
-        //System.out.println(context.getBean(Address.class));
-
         System.out.println(context.getBean("person2MethodCall"));
 
         System.out.println(context.getBean("person3Parameters"));
 
+        System.out.println(context.getBean("person5Qualifier"));
+
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
+
+        System.out.println(context.getBean(Address.class));
+        System.out.println(context.getBean(Person.class));
+
+
 
     }
 }
