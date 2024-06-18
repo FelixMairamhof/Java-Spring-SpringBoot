@@ -4,6 +4,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Arrays;
+
 @Configuration
 @ComponentScan
 public class BuisnessLauncherApplication {
@@ -12,6 +14,8 @@ public class BuisnessLauncherApplication {
                      new AnnotationConfigApplicationContext
                              (BuisnessLauncherApplication.class)){
 
+            Arrays.stream(context.getBeanDefinitionNames())
+                    .forEach(System.out::println);
             int max = context.getBean(BuisnessCalculationService.class).findMax();
             System.out.println(max);
         }
